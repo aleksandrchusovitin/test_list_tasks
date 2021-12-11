@@ -55,6 +55,7 @@ const MainPage = () => {
       <div className="container-fluid h-100">
         <div className="row justify-content-center align-content-center h-100">
           <div className="col-12 col-md-8 col-xxl-6 mb-4">
+            <h3>Записи: </h3>
             {renderTasks(tasks)}
             <Button type="button" variant="outline-primary" onClick={handleAddTask('addingTask')}>Добавить запись</Button>
           </div>
