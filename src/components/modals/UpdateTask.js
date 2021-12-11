@@ -10,7 +10,6 @@ import {
 } from 'react-bootstrap';
 import { modalSetting } from '../../store/slices/modal';
 import { updateTask } from '../../store/slices/tasks.js';
-import * as yup from 'yup';
 
 const UpdateTask = ({ currendTaskId }) => {
   const dispatch = useDispatch();
@@ -33,10 +32,6 @@ const UpdateTask = ({ currendTaskId }) => {
       name,
       description,
     },
-    validationSchema: yup.object({
-      name: yup.mixed().required(),
-      description: yup.string().min(6).max(50).required(),
-    }),
     onSubmit: (values, { resetForm }) => {
       const task = { name: values.name, description: values.description, id: currendTaskId };
       dispatch(updateTask({ task }));
