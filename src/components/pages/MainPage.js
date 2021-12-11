@@ -28,14 +28,13 @@ const MainPage = () => {
 
   const renderTasks = (tasks) => {
     const taskList = tasks.map(({ id, name }) => (
-      <Link key={id} to={`/desc/${id}`}>
-        <ListGroup.Item className="d-flex justify-content-between align-items-center border-0 border-end-0">{name}
+       <ListGroup.Item key={id} className="d-flex justify-content-between align-items-center border-0 border-end-0">
+       <Link to={`/desc/${id}`}>{name}</Link>
           <div>
-            <Button type="button" variant="outline-warning" onClick={handleUpdateTask(id, 'updatedTask')}>Изменить запись</Button>
+            <Button type="button" style={{ 'margin-right': '10px' }} variant="outline-warning" onClick={handleUpdateTask(id, 'updatedTask')}>Изменить запись</Button>
             <Button type="button" variant="outline-danger" onClick={handleRemoveTask(id)}>Удалить запись</Button>
           </div>
         </ListGroup.Item>
-      </Link>
     ));
     return (
       <ListGroup className="mb-4">{taskList}</ListGroup>
